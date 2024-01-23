@@ -9,7 +9,7 @@ class AppRepositoryImpl extends AppRepository{
 
 
   @override
-  Future<Facts> getAllFacts() {
+  Future<List<Facts>> getAllFacts() {
     final response = api.getFacts();
     return response;
   }
