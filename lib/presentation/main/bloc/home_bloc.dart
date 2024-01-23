@@ -5,6 +5,9 @@ import 'package:bloc/bloc.dart';
 import 'package:cat_trivia/data/models/facts/facts_model.dart';
 import 'package:cat_trivia/di/di.dart';
 import 'package:cat_trivia/domain/repository/app_repository.dart';
+import 'package:cat_trivia/presentation/history/history_page.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 import '../../../data/data_sources/local/adapter/CatHolder.dart';
@@ -41,6 +44,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       GetFactsLoadingState();
       try{
         emit(GetFactsSuccessState(_getRandomCatInfo()));
+      }catch(e){
+        emit(GetFactsErrorState(e.toString()));
+        print(e.toString());
+      }
+    });
+
+    on<ShowAllHistoryFactsEvent>((event, emit) async{
+      GetFactsLoadingState();
+      try{
+
       }catch(e){
         emit(GetFactsErrorState(e.toString()));
         print(e.toString());

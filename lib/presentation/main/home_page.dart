@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 import '../../data/data_sources/local/adapter/CatHolder.dart';
+import '../history/history_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -52,7 +53,11 @@ class _HomePageState extends State<HomePage> {
             DateTime createdAt = DateTime.parse(state.facts.createdAt ?? "");
             String formattedDate = DateFormat.yMd().add_Hms().format(createdAt);
             return Scaffold(
-              appBar: AppBar(title: Text('Cats'),),
+              appBar: AppBar(title: Text('Cats'), actions: <Widget>[
+                IconButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => HistoryPage() ));
+                }, icon: const Icon(Icons.history))
+              ],),
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

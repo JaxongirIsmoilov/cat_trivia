@@ -4,6 +4,8 @@ import 'package:cat_trivia/domain/repository/app_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+import '../data/data_sources/local/hive_helper.dart';
+
 
 final getIt = GetIt.instance;
 final dio = Dio(BaseOptions(
@@ -14,4 +16,5 @@ final dio = Dio(BaseOptions(
 void setup() {
   getIt.registerSingleton<ApiService>(ApiService(dio));
   getIt.registerSingleton<AppRepository>(AppRepositoryImpl());
+  getIt.registerSingleton<HiveHelper>(HiveHelper());
 }
