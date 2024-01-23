@@ -8,7 +8,7 @@ class HomeInitial extends HomeState {}
 class GetFactsLoadingState extends HomeState{}
 
 class GetFactsSuccessState extends HomeState{
-  final CatHolder facts;
+  final CatModelCommon facts;
   GetFactsSuccessState(this.facts);
 }
 

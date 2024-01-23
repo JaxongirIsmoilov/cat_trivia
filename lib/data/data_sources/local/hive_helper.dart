@@ -1,4 +1,5 @@
 import 'package:cat_trivia/data/data_sources/local/adapter/CatHolder.dart';
+import 'package:cat_trivia/data/models/CatModelCommon.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import 'adapter/cat_item_helper.dart';
@@ -10,13 +11,13 @@ class HiveHelper{
     await Hive.openBox('Cats');
   }
 
-  static Future<void> saveFact(CatHolder catModel) async {
+  static Future<void> saveFact(CatModelCommon catModel) async {
     var box = Hive.box('cats');
     box.add(catModel);
   }
 
-  static List<CatHolder> showAllFacts() {
+  static List<CatModelCommon> showAllFacts() {
     var box = Hive.box('cats');
-    return box.values.cast<CatHolder>().toList();
+    return box.values.cast<CatModelCommon>().toList();
   }
 }
