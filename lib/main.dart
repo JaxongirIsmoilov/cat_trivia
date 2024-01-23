@@ -1,3 +1,4 @@
+import 'package:cat_trivia/presentation/history/history_page.dart';
 import 'package:cat_trivia/presentation/main/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomePage()
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => HomePage(),
+        'history' : (context) => HistoryPage()
+      },
     );
   }
 }

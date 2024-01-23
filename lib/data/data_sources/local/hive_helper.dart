@@ -1,4 +1,3 @@
-import 'package:cat_trivia/data/data_sources/local/adapter/CatHolder.dart';
 import 'package:cat_trivia/data/models/CatModelCommon.dart';
 import 'package:hive_flutter/adapters.dart';
 

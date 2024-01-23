@@ -1,6 +1,7 @@
 
 import 'dart:io';
 
+import 'package:cat_trivia/presentation/history/bloc/history_bloc.dart';
 import 'package:cat_trivia/presentation/main/bloc/home_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,7 @@ class _HomePageState extends State<HomePage> {
         builder: (context, state){
           if(state is GetFactsLoadingState){
             return const Scaffold(
+              backgroundColor: Colors.grey,
               body: SafeArea(
                 child: Center(
                   child: CupertinoActivityIndicator(),
@@ -54,7 +56,7 @@ class _HomePageState extends State<HomePage> {
             return Scaffold(
               appBar: AppBar(title: Text('Cats'), actions: <Widget>[
                 IconButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HistoryPage() ));
+                  Navigator.pushNamed(context, 'history');
                 }, icon: const Icon(Icons.history))
               ],),
               body: Column(
@@ -62,24 +64,6 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.file(File(state.facts.image), height: 200, width: 200,),
-                  // Image.network(
-                  //   'https://cataas.com/cat',
-                  //   height: 200,
-                  //   width: 200,
-                  //   fit: BoxFit.cover,
-                  //   loadingBuilder: (BuildContext context, Widget child,
-                  //       ImageChunkEvent? loadingProgress) {
-                  //     if (loadingProgress == null) return child;
-                  //     return Center(
-                  //       child: CircularProgressIndicator(
-                  //         value: loadingProgress.expectedTotalBytes != null
-                  //             ? loadingProgress.cumulativeBytesLoaded /
-                  //             loadingProgress.expectedTotalBytes!
-                  //             : null,
-                  //       ),
-                  //     );
-                  //   },
-                  // ),
                   const SizedBox(height: 20,),
 
                   Text(state.facts.text.toString()),
