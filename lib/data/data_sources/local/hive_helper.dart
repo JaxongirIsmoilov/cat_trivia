@@ -6,7 +6,6 @@ class HiveHelper{
   static Future<void> init() async {
     await Hive.initFlutter();
     Hive.registerAdapter(CatItemsModelAdapter());
-    await Hive.openBox('basket');
-    await Hive.openBox('favourite');
+    await Hive.openBox('Cats');
   }
 }
