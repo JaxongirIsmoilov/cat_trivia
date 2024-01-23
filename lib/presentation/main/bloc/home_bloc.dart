@@ -45,7 +45,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     
     on<GetAllFactsEvent>((event, emit) async{
-      GetFactsLoadingState();
+      emit(GetFactsLoadingState());
       try{
         List<Facts> data = await repository.getAllFacts();
         data.forEach((element) {
@@ -61,7 +61,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     });
 
     on<GenerateNewFacts>((event, emit) async{
-      GetFactsLoadingState();
+      emit(GetFactsLoadingState());
       try{
         CatModelCommon generatedInfo = await _getRandomCatInfo();
         HiveHelper.saveFact(generatedInfo);

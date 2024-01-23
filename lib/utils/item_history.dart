@@ -12,7 +12,7 @@ Widget itemHistory(CatModelCommon catHolder) {
     children: [
       Row(
         children: [
-         Image.file(File(catHolder.image), width: 200, height: 200,),
+         Image.file(File(catHolder.image), width: 150, height: 200,),
           Container(
             width: 200,
             child: Text(
