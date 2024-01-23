@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-void main() {
+import 'data/data_sources/local/hive_helper.dart';
+import 'di/di.dart';
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  HiveHelper.init();
+  setup();
   runApp(const MyApp());
 }
 
